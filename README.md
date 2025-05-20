@@ -19,7 +19,7 @@ This project provides a chatbot that can answer questions about openBIS using Re
   - `nomic-embed-text` (for embeddings)
   - `qwen3` (for chat)
 
-### From Source
+### From Source (Recommended)
 
 ```bash
 git clone https://github.com/yourusername/openbis-chatbot.git
@@ -27,30 +27,51 @@ cd openbis-chatbot
 pip install -e .
 ```
 
-### Using pip
+This installs the package in development mode, allowing you to make changes to the code and have them reflected immediately.
+
+### Using pip (Not yet available)
 
 ```bash
 pip install openbis-chatbot
 ```
 
+Note: This option will be available once the package is published to PyPI.
+
 ## Usage
 
-### Scraping Content
+### Simple Usage (Recommended)
+
+The simplest way to use the chatbot is with a single command:
 
 ```bash
-openbis-scraper --url https://openbis.readthedocs.io/en/latest/ --output ./scraped_content --version en/latest
+python -m openbis_chatbot
 ```
 
-### Processing Content
+This will:
+1. Check if processed data already exists in the `data/processed` directory
+2. If it exists, start the chatbot with that data
+3. If not, automatically scrape the openBIS documentation, process it, and then start the chatbot
+
+### Advanced Usage (Component-by-Component)
+
+If you need more control, you can still run each component separately:
+
+#### Scraping Content
 
 ```bash
-openbis-processor --input ./scraped_content --output ./processed_content
+python -m openbis_chatbot scrape --url https://openbis.readthedocs.io/en/latest/ --output ./data/raw
 ```
 
-### Running the Chatbot
+#### Processing Content
 
 ```bash
-openbis-chatbot --data ./processed_content
+python -m openbis_chatbot process --input ./data/raw --output ./data/processed
+```
+
+#### Running the Chatbot
+
+```bash
+python -m openbis_chatbot query --data ./data/processed
 ```
 
 ## Command-Line Options

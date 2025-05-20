@@ -1,0 +1,207 @@
+Title: General Admin Users
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/index.html
+---
+
+
+
+
+
+# General Admin Users
+
+
+
+- Admins Documentation
+Login
+File based and/or LDAP authentication
+SWITCHaai authentication
+
+
+Inventory overview
+Customise Inventory Of Materials And Samples
+Create Collections of Materials
+Create the Project folder
+Create the Collection folder
+Add the “+Object type” button in the Collection percentage
+
+
+Delete Collections
+Enable Storage Widget on Sample Forms
+Configure Lab Storage
+Add metadata to Storage Positions
+
+
+Customise Inventory Of Protocols
+Create Collections of Protocols
+Enable Protocols in Settings
+
+
+Move Collections to a different Project
+Customise Parents and Children Sections in Object Forms
+Customise the Main Menu
+Main Menu Sections
+Lab Notebook menu
+
+
+Associate File Types to Dataset Types
+User Registration
+Register users in ELN Interface
+Default roles assigned in ELN
+Register users from the admin UI
+Deactivate users
+Remove users
+Create users groups in admin UI
+openBIS roles
+Observer
+Space/Project User
+Space/Project Power User
+Space/Project Admin
+Instance Admin
+
+
+User Profile
+Assign home space to a user
+
+
+New Entity Type Registration
+Register a new Object Type
+Registration of Properties
+Additional fields
+Property Data Types
+Pattern Validation
+Considerations on properties registration
+Controlled Vocabularies
+
+
+Register a new Experiment/Collection type
+Register a new Dataset type
+Enable Rich Text Editor or Spreadsheet Widgets
+Enable Objects in dropdowns
+Register masterdata via Excel
+Masterdata and metadata import
+
+
+Properties overview
+Internal properties and vocabularies
+Default openBIS Types
+
+
+Masterdata exports and imports
+Masterdata export
+Masterdata import
+Masterdata version
+
+
+Imports of openBIS exports
+Metadata import
+Datasets import
+
+
+Create Templates for Objects
+Enable Transfer to Data Repositories
+Enable Barcodes and QR codes
+Enable archiving to Long Term Storage
+History Overview
+History of deletions
+History of freezing
+
+
+Space Management
+Create new Inventory Spaces
+Create a new Inventory Space from the ELN UI
+Create a new Inventory Space from the core UI
+
+
+Create new ELN Spaces
+Create a new Lab Notebook Space from the ELN UI
+Create a new Lab Notebook Space from the core UI
+
+
+Delete Spaces
+Move Spaces between Lab Notebook and Inventory
+
+
+Multi Group Set Up
+General ELN Settings
+Instance Settings
+Group Settings
+
+
+Group ELN Settings
+
+
+Database navigation in admin UI
+Features
+Filter
+Navigation
+Sorting
+
+- Properties Handled By Scripts
+Introduction
+Types of Scripts
+Defining properties
+Dynamic Properties
+Introduction
+Defining dynamic properties
+Creating scripts
+Simple Examples
+Advanced Examples
+Data Types
+
+
+Creating and Deploying Java Plugins
+Dynamic properties evaluator
+
+
+Entity validation scripts
+Introduction
+Defining a Jython validation script
+Script specification
+Triggering Validation of other Entities
+
+
+Script example
+Activating the validation
+Creating and Deploying Java Validation Plugins
+When are validations performed
+Good practices
+
+
+Managed Properties
+Introduction
+Defining Managed Properties
+Creating scripts
+Predefined Functions
+Java API
+Examples of user defined functions
+Storing structured content in managed properties
+Unofficial API
+‘Real World’ example
+
+
+Creating and Deploying Java Plugins
+
+- Custom Database Queries
+Introduction
+How it works
+Setup
+Running a Parametrized Query
+Running a SELECT statement
+Defining and Editing Parametrized Queries
+Define a Query
+Public flag
+Specifying Parameters
+Array Literals for PostgreSQL data sources
+Hyperlinks
+
+
+Edit a Query
+
+
+Entity Queries (Experiment, Sample, Material, Data Set)
+How to create/edit entity custom queries
+Examples
+
+
+
+
+

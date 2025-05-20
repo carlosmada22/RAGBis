@@ -1,0 +1,161 @@
+Title: Changelog
+URL: https://openbis.readthedocs.io/en/latest/system-documentation/changelog/index.html
+---
+
+
+
+
+
+# Changelog
+
+
+
+- OpenBIS Change Log
+Version 20.10.11 (02 Dec 2024)
+Core
+ELN
+
+
+Version 20.10.10 (10 Oct 2024)
+Core
+ELN
+
+
+Version 20.10.9.1 (16 Aug 2024)
+ELN
+
+
+Version 20.10.9 (31 Jul 2024)
+Core
+ELN
+Admin
+
+
+Version 20.10.8 (29 May 2024)
+Core
+ELN
+Admin
+
+
+Version 20.10.7.3 (23 November 2023)
+ELN
+Admin
+
+
+Version 20.10.7.2 (13 October 2023)
+ELN
+Admin
+Core
+
+
+Version 20.10.7.1 (25 July 2023)
+ELN
+Admin
+
+
+Version 20.10.7 (5 July 2023)
+Core
+ELN
+Admin UI
+ELN/Admin UI
+
+
+Version 20.10.6 (26 April 2023)
+Core
+Admin UI / ELN
+Admin UI
+ELN
+
+
+Version 20.10.5 (29 November 2022)
+Core
+Jupyter Integration:
+Admin UI
+ELN-LIMS:
+
+
+Version 20.10.4 (3 August 2022)
+Core
+ELN
+
+
+Version 20.10.3.1 (13 June 2022)
+Core
+ELN
+
+
+Version 20.10.3 (7 March 2022)
+Core
+ELN
+pyBIS
+New Admin UI
+
+
+Version 20.10.2.3 (15 November 2021)
+ELN
+
+
+Version 20.10.2.2 (30 November 2021)
+Core
+ELN
+
+
+Version 20.10.2.1 (6 October 2021)
+Core
+ELN
+
+
+Version 20.10.2 GA (General Availability) (22 September 2021)
+Core
+ELN
+New Admin UI
+
+
+Version 20.10.1 EA (Early Access) (12 March 2021)
+Core
+ELN
+New Admin UI
+
+
+Version 20.10.0 RC (Release Candidate) (27 October 2020)
+Admin UI Currently a preview, will replace the Core UI on the future.
+ELN-LIMS UI
+
+
+Deprecated
+V3 API
+
+
+Removed
+
+- Pending 20.10 Configuration Changes
+Version 20.10.10
+1. Changes to Datastore logs configuration
+
+
+Version 20.10.9
+1. Changes to ELN LIMS Dropbox, new configuration keys for DSS service.properties.
+Configuration:
+
+
+2. Configuration of download-url for Application Server service.properties
+
+
+Version 20.10.6
+1. Changes on ELN LIMS Dropbox, new configuration key for DSS service.properties. This change is OPTIONAL.
+2. Changes to User Management Task, new configuration key for the configuration file. This change is OPTIONAL.
+3. Technology Upgrade: Postgres 15. This change is OPTIONAL.
+
+
+Version 20.10.3
+Version 20.10.2 GA (General Availability)
+Version 20.10.1 EA (Early Access)
+Release 20.10.0 RC
+Technology Upgrade: Postgres 11
+Technology Upgrade: Java 11
+Technology Upgrade: Search Engine
+
+
+
+
+

@@ -1,0 +1,1039 @@
+Title: Lab Notebook
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html
+---
+
+
+
+
+
+# Lab Notebook
+
+
+In the most common use-cases, the Lab Notebook part of the openBIS ELN-LIMS contains a personal Space (i.e. folder) for each scientist. Within this Space, scientists can organise their work using the openBIS Projects, Experiments and Objects.
+
+
+An openBIS Experiment is defined as a specific scientific question. The individual attempts to answer this question, are Objects of type Experimental Step. At this level, the user can create links to materials and methods registered in the Inventory that were used to perform the Experimental Step. These are entered as Parents of the Experimental Step. All data produced in the Experimental Step and further processed and analysed can be added at this level.
+
+
+It is also possible to organise the Lab Notebook on Projects, rather than on personal Spaces. This should be configured by an Instance admin.
+
+
+
+## Register Projects
+
+
+In a personal folder, users can register one or more Projects they
+currently work on. Projects in openBIS only have a Description
+field, no additional fields can be added.
+
+
+- Navigate to the relevant Space in the Lab Notebook menu and click the + New Project
+
+- Should you have an empty page, select Show Identification Info and Show Description from the More… dropdown
+
+- Projects do not have a Name field, but only Code. Codes can only take alphanumeric characters and no spaces. Codes are prettified in the Main Menu.
+
+- Enter a Description for the project.
+
+- Click Save on top of the form.
+
+
+
+
+
+
+In the More… dropdown you have additional options on what you can do
+in the Project folder, as shown below.
+
+
+
+
+
+
+
+
+
+
+## Register Experiments
+
+
+Inside one Project, a user can register several Experiments, which can in turn be divided into single Experimental Steps.
+
+
+openBIS provides by default 2 options for registering Experiments:
+
+
+- Default Experiment: The form of the Default Experment contains several metedata fields that can be filled in by the user.
+
+- Collection: This form has limited metadata fields. It should be considered as a folder, to be used in cases where a user only needs to group subsequent steps, and does not need any relevant information at this folder level.
+
+
+
+
+
+
+
+### Register a Default Experiment:
+
+
+
+
+
+- Navigate to the relevant Project in the Lab Notebook menu
+
+- Select Default Experiment from the +New dropdown, as shown below. Please note that your openBIS instance might have different types of Experiments, depending on how it has been configured by the Instance admin.
+
+
+
+
+
+
+- Fill in the relevant fields in the form.
+
+- Select Show in project overview = true if the Experiment is
+important and should be shown in the Project form.
+
+- Click Save on top of the form.
+
+
+
+
+
+
+
+
+
+
+
+### Register a Collection:
+
+
+- Navigate to the relevant Project in the Lab Notebook menu
+
+- Select Collection from the +New dropdown, as shown below. Please note that your openBIS instance might have different types of Experiments, depending on how it has been configured by the Instance admin.
+
+
+
+
+
+
+- Fill in the Name of the Collection and choose the Default Object Type and Default collection view. For more info about Collections, see Customize Collection View and Collections of Materials
+
+- Click Save on top of the form.
+
+
+
+
+
+
+
+
+
+## Register Experimental Steps
+
+
+As mentioned above, the various steps executed when performing an
+Experiment in the lab can be registered in openBIS as  Experimental
+Steps or Entries.
+
+
+The default Experimental Step has pre-defined fields, as shown below:
+
+
+
+
+
+
+
+
+An Entry, is a blank page, with no pre-defined fields:
+
+
+
+
+
+
+
+
+To register a default Experimental Step or Entry:
+
+
+- Navigate to the relevant Experiment in the Lab Notebook menu and click the + New button, as shown below.
+
+- Select Experimental Step or Entry
+
+- Fill in the relevant information or select an available template from the list (see below).
+
+- If Show in project overview is set to true, this Experimental Step or Entry will be displayed on the Project page.
+
+- Click Save on top of the form.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Comments Log
+
+
+Several comments can be added by different users who have write-access to a given user Space:
+
+
+- Click the button in the Comments section.
+
+- Enter the comment.
+
+- Click Save.
+
+
+
+
+
+
+## Add parents and children to Experimental Steps
+
+
+In the default Experimental Step and in the Entry, there is a
+Parents section where it is possible to specify links to materials
+and methods from the Inventory or to any other Object, e.g. another
+Experimental Step or Entry.
+
+
+Parents are all samples/materials used in an experimental procedure,
+standard protocols from the inventory followed in the experimental
+procedure, the equipment used. It is also possible to set one
+Experimental Step/Entry as parent of a second Experimental
+Step/Entry, to keep the connection between the two.
+
+
+The name of this section and which parents should be shown in the form,
+is customisable by the lab manager or group admin as described in
+Customise Parents and Children Sections in Object
+Forms
+
+
+
+### Adding a parent
+
+
+
+
+
+
+#### Adding a parent of a predefined type in the form
+
+
+In the screenshot above, General protocol is predefined as parent
+type in the form. We have two options to add a parent of this predefined
+type:
+
+
+
+##### 1. Search
+
+
+- Click on the Search button.
+Enter the name or code of the entry you want to add as
+parent.
+Select the entry you want to add from the list presented to you.
+
+
+
+The parent will be added only when you save the entity.
+
+
+
+
+
+
+
+##### 
+
+
+
+
+##### 2. Paste
+
+
+- You may copy the identifier of an entry you want to add as
+parent from a file, or from an advanced search or from another
+ELN page. You can paste the identifier(s) in the Paste text
+field.
+Click the +Add button
+
+
+
+
+
+
+
+
+
+#### Adding parent of any available type
+
+
+If you want to add a parent that is not specified in the Experimental
+Step form, you can use the Search Any or Paste Any options next
+to Parents.
+
+
+
+
+
+
+##### 1. Search Any
+
+
+- Click Search Any
+
+- Select the Object type for which you want to add a parent
+
+- Search by code or name as explained above
+
+- Click the +Add button
+
+
+
+
+
+##### 2. Paste Any
+
+
+There are cases where you may want to add several parents of the same
+type or also of different types. In this case, we recommend to use the
+Advanced Search to find the entries you want to add. You can select
+the desired entries from the table and the Copy Identifiers button
+will become visible. You can copy the identifiers and paste them in the
+Paste Any field in the Experimental Step page, as shown below.
+
+
+
+
+
+
+
+
+#### Adding parent via barcodes
+
+
+If you want to add a parent that is registered in openBIS and has a
+barcode associated with it by scanning the barcode:
+
+
+
+
+
+1.Click on the barcode icon in the Parents section
+
+
+
+
+
+- A Barcode/QR code reader window opens
+
+
+
+
+
+
+- Scan the barcode/QR code of the entry you want to add as parent with
+a scanner or with the camera of a mobile device
+
+- Click on the Add Objects button
+
+- Close
+
+
+
+
+
+
+### Removing a parent
+
+
+To remove a parent, choose Remove from the Operations drop down in the parent table, as shown below.
+
+
+
+
+
+
+
+### Adding and Removing Children
+
+
+Children of Experimental Steps are usually derivative Experimental
+Steps, or products of the Experimental Step. As for the Parents
+section, this section can also be customised by a group admin or lab
+manager in the ELN Settings (Customise Parents and Children Sections in Object Forms).
+
+
+The procedure for adding and removing children is the same as explained
+for parents.
+
+
+
+#### Children Generator
+
+
+The Children Generator creates a matrix of all the parents entered
+in the Experimental Step, as shown below. Combinations of parents
+needed to generate children can then be selected by the user. The
+Object type to assign to the children and the number of replicas need
+to be specified. The children will then be automatically generated by
+openBIS upon registration of the Experimental Step.
+
+
+
+
+
+
+
+
+### Parent-child relationships between entries in lab notebook
+
+
+In the Lab Notebook section, if you create a new Object from an
+existing Object, independently of the type, this will be automatically
+set as parent of the new Object. For example, if you create a new
+Experimental Step (measurement 4) from an existing Experimental Step
+(measurement 3), this will be automatically set as child of measurement
+3, as shown below.
+
+
+
+
+
+If you do not wish to have this relationship established, you need to
+create the new Object starting from the Experiment level, as shown
+below.
+
+
+
+
+
+
+
+
+## How to use protocols in Experimental Steps
+
+
+When adding protocols to an Experimental Step, two options are
+available:
+
+
+- Link to a Protocol stored in the Inventory. This can be used
+if the protocol was followed exactly in all steps as described.
+
+- Create a local copy of the Protocol from the Inventory in the
+current Experiment. This should be done if some steps of the main
+protocol were modified. These modifications can be edited in the
+local copy of the protocol, while the template is left untouched.
+
+
+
+
+
+
+To create a local copy under the current Experiment of a template protocol stored in the Inventory:
+
+
+- Add a protocol as parent.
+
+- From the Operations dropdown in the parents table select Copy to Experiment.
+
+- Provide the Object code for the new protocol.
+
+- A copy of the protocol is created under the current Experiment, where the user can modify it. This copy has the original protocol set as parent, so that connection between the two is clear.
+
+
+
+
+
+
+
+
+## Move Experimental Steps
+
+
+
+
+
+To move an Experimental Step to a different Experiment, choose
+Move from the More.. drop down, as shown in the picture above.
+
+
+
+
+
+
+
+
+
+
+
+It is possible to move Experimental Steps from the Object table
+which is presented on an Experiment or Collection page.
+
+
+Select the entries to move and use the Move button on the table. You
+can move to an existing Experiment/Collection or create a new one.
+
+
+
+
+
+
+
+
+
+
+## Copy Experimental Steps
+
+
+
+
+
+To copy an Experimental Step, select Copy from the More… drop
+down menu, as shown below.
+
+
+
+
+
+
+
+
+When an Experimental Step is copied, the user has the option to link
+parents, copy children to the current Experiment and copy the
+comments log. The Experimental Step is copied inside the same
+Experiment.
+
+
+
+
+
+
+
+## Use templates for Experimental Steps
+
+
+
+
+
+Templates need to be defined by the lab manager in the ELN Settings. If templates have been created for a given Experimental Step, you can choose from the list of available templates by clicking the Template button on the Object form, as shown below.
+
+
+
+
+
+A template of an Experimental Step is an Experimental Step with
+pre-filled values. Templates are useful when you need to repeat an
+Experimental Step with the same parameters several times and you wold
+like to have default values for those parameters.
+
+
+
+
+
+
+
+
+
+
+## Datasets tables
+
+
+Since openBIS version 20.10.7, a dataset table has been added to the Experiment/Collection and Object pages.
+
+
+This table shows the metadata of the datasets. The content of the datasets can be navigated through the main menu.
+
+
+
+
+
+
+
+## Data Access
+
+
+Datasets are displayed on the left hand-side of the
+Experiment/Object form, as shown below.
+
+
+
+
+
+To navigate and open data registered in openBIS via Finder or Explorer, open the Dataset folder and click on the drive icon next to the Dataset type name (see above). If SFTP has been configured on system level, you will be provided with a link to copy/paste in an application such as Cyberduck or other.
+
+
+Please check our documentation for SFTP server configuration: Installation and Administrators Guide of the openBIS Data Store Server
+
+
+
+
+
+For native access through Windows Explorer or Mac Finder we recommend
+the following:
+
+
+
+
+
+- Windows
+10: https://www.nsoftware.com/sftp/netdrive/
+
+- Mac OS X Yosemite and
+higher: https://mountainduck.io
+
+- Kubuntu: Default Dolphin File Manager with SFTP support
+
+
+
+
+### Example of SFTP Net Drive connection:
+
+
+1. open SFTP Net Drive and click on New:
+
+
+
+
+
+
+
+
+2. Edit the drive with the following info, as shown below:
+
+
+a. Drive name: choose any name you want. Can be the same as
+your openBIS server, but does not have to be.
+
+
+b. Remote Host: the name of your openBIS. For example, if the
+url of your openBIS is https://openbis-
+demo.ethz.ch/openbis/webapp/eln-lims, then openbis-demo.ethz.ch is the
+name you want to enter.
+
+
+c. Remote port: enter 2222.
+
+
+d. Authentication type: Password (this is selected by default).
+
+
+e. Username: the username you use to login to openBIS.
+
+
+f. Password: the password you use to login to openBIS.
+
+
+g. Root folder on server: you can leave the default, User’s home
+folder.
+
+
+h. Press OK after filling in all the information above.
+
+
+
+
+
+
+
+
+
+
+
+3. After saving the drive, select it in the drivers’ window and click
+Connect.
+
+
+
+
+
+
+
+
+3. openBIS will now appear as a drive in your Explorer window. Click on
+the ELN-LIMS folder and navigate to the folder containing the data
+you want to access.
+
+
+
+
+
+
+
+
+
+
+
+Note: if you encounter the error message “SSH connection failed: Could
+not find a part of the path.” you can fix this by disabling the cache
+(Drives -> Advanced -> Enable Caching), and disabling log files.
+The error is caused by an attempt to create files in a folder not
+available to Windows.
+
+
+
+
+
+
+
+
+
+
+### Example of Cyber Duck configuration
+
+
+
+
+
+Create a new connection in cyberduck:
+
+
+- select SFTP (SSH File Transfer Protocol)
+
+- Nickname: the name you want to use for the server
+
+- Server: the name of the server you want to connect to. In the
+example below openbis-training.ethz.ch. Replace this with the name
+of your own openBIS server.
+
+- Port: 2222
+
+- Username: this is the username with which you connect to your
+openBIS
+
+- Password: this is the password you use to connect to your
+openBIS
+
+- SSH private Key: none
+
+
+
+
+
+
+
+
+
+Save the specifications and connect to the server.
+
+
+You will see the folders of your own openBIS in the Cyberduck window and
+you can navigate to your data from there.
+
+
+
+
+
+
+
+
+
+
+### Example of  Dolphin File Manager configuration
+
+
+
+
+
+To access the Dataset form and edit the Dataset metadata, click on the
+Dataset code or Name (if provided).
+
+
+
+
+
+
+
+### SFTP access via session token
+
+
+To access via session token (for example when using SSO authentication)
+you need to provide the following credentials:
+
+
+
+
+
+Username: ?
+
+
+Password: session token.
+
+
+
+
+
+The session token can be copied from the User Profile under
+Utilities in the main menu, as shown below.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Move Datasets
+
+
+
+
+
+It is possible to move a Dataset from one Experiment/Object to
+another Experiment/Object.
+
+
+- Click on the Dataset in the main menu
+
+- In the Dataset page select Move from the More.. dropdown
+
+- Enter the name or code of the Experiment or Object where you
+want to move the Dataset to. If you start typing, openBIS will
+show you a list of possible entries that match what you entered.
+
+- Press the Accept button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Move one Experiment to a different Project
+
+
+
+
+
+It is possible to move one Experiment and all contained Objects and
+Datasets from one Project to another.
+
+
+If Objects contain parent/child relationships these are preserved.
+
+
+
+
+
+To move one Experiment from one Project to another:
+
+
+
+
+
+- Select the Experiment you want to move from the main menu
+
+- Select Move from the More… dropdown
+
+
+
+
+
+
+
+
+
+
+
+
+3. Enter the code of the Project where you want to move your
+Experiment. If you start typing the code, openBIS will prompt you with a
+list of available options and you can select the appropriate one from
+there.
+
+
+
+
+
+
+
+
+4. Click Accept
+
+
+
+
+
+
+
+## Project Overview
+
+
+In the Project page you have the options to see:
+
+
+- Default Experiments and Experimental Steps with the field Show in project overview = true. This is a way to mark the most    relevant Experiments and Experimental steps and see them at a glance on the project page (Show Overview).
+
+- All experiments belonging to the project (Show Experiments/Collections).
+
+
+
+The two options are available from the More.. dropdown on the Project
+page.
+
+
+
+
+
+Below you see an example of an overview in a Project page.
+
+
+
+
+
+Below you see an example of the visualisation of Experiments and
+Collections in a Project page.
+
+
+
+
+
+
+
+## Edit and Delete Projects, Experiments, Experimental Steps
+
+
+
+
+
+
+
+
+Projects, Experiments and Experimental Steps can be edited at any
+time, by selecting the Edit icon from the toolbar of the relevant
+page.
+
+
+Projects, Experiments and Experimental Steps can be deleted using
+the Delete option under More tab in the toolbar.
+
+
+
+
+
+
+
+
+
+
+
+Experiments and Experimental Steps are moved to the trashcan,
+from where they need to be removed in order to be permanently deleted
+from the database. Projects are directly deleted, they are not moved
+to the trashcan first. Projects can be deleted only after deleting all
+the Experiments they contain.
+
+
+Please be aware that, by default, only users with Space Admin and
+Instance Admin  role have permission to delete. Default permissions can
+be modified on system level (see Changing the openBIS
+capability role
+map)
+
+
+
+
+## Share Lab Notebooks and Projects
+
+
+It is possible to share either a complete lab notebook or single
+Projects, using the Manage Access option in the More..
+dropdown of a Space or Project page, as shown below.
+
+
+
+
+
+
+
+
+
+
+
+Available roles are:
+
+
+- Observer: read-only access to Space or Project
+
+- User: can create and modify entities in Space or Project
+
+- Admin: can create, modify and delete entities in Space or
+Project
+
+
+
+The roles can be granted to:
+
+
+- User: the user needs to be already registered in openBIS. The
+username of the user needs to be entered.
+
+- Group: the name of a user group existing in openBIS needs to be
+entered.
+
+
+
+
+
+
+
+
+
+
+
+## Rich Text Editor
+
+
+
+### EMBED IMAGES IN TEXT FIELDS
+
+
+To embed an image in the a text field with the Rich Text Editor (RTE) enabled, you can simply drag & drop a .png or .jpg file and resize the image by clicking on and dragging the corners.
+
+
+
+
+
+
+
+

@@ -1,0 +1,138 @@
+Title: Advance Features
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/advance-features/index.html
+---
+
+
+
+
+
+# Advance Features
+
+
+
+- JupyterHub for openBIS
+Overview
+Nomenclature
+Prerequisites for testing in a local environment
+
+
+How to run the official JupyterHub for openBIS image in your local machine
+How to extend the official JupyterHub for openBIS image
+Modify a currently running container - From UI (for users)
+Check Available Python 2 Libraries
+Add Python 2 Library
+Check Available Octave Libraries
+Add Octave Library
+Check Available Python 3 Libraries
+Add Python 3 Library
+Check Available R Libraries
+Add R Library
+
+
+Modify a currently running container - From Console (for admins)
+Add Python Library
+Add R Library
+Save the state of a running container as a new image
+
+
+Extend a docker image using a docker recipe (for maintenance)
+How to start a jupyterhub-openbis docker image on a productive JupyterHub server
+Other useful Docker commands
+Save an image as a tar file to share it
+Load an image from a tar file
+Remove an image
+Remove all stopped containers
+
+
+openBIS ELN Integration Configuration
+Troubleshooting Connectivity to openBIS
+Session is no longer valid. Please log in again error
+Session is no longer valid. The openBIS server has a self-signed certificate
+Session is no longer valid. The session has timeout
+
+- openBIS Command Line Tool (oBIS)
+1. Prerequisites
+2. Installation
+3. Quick start guide
+4. Usage
+4.1 Help is your friend!
+
+
+5. Work modes
+5.1 Standard Data Store
+5.1.1 Commands
+5.1.2 Examples
+
+
+5.2 External Data Store
+5.2.1 Settings
+
+
+5.2.2 Commands
+5.2.3 Examples
+
+
+6. Authentication
+6.1. Login
+6.2. Personal Access Token
+
+
+7. Big Data Link Services
+8. Rationale for obis
+9. Literature
+
+- openBIS Data Modelling
+Overview
+Data model in openBIS ELN-LIMS
+Inventory
+Lab Notebook
+openBIS parents and children
+Examples of parent-child relationships
+
+- Excel Import Service
+Introduction
+Modes
+Organising Definition Files
+Organising Definitions
+Text cell formatting (colours, fonts, font style, text decorations)
+Definition, rows and sheet formatting
+Clarifying Header Interpretation in Ambiguous Cases
+Case 1: Property Type A Code Matches Property Type B Label
+Case 2: Property Type A Label Matches Property Type B Label
+
+
+
+
+Entity Types Definitions
+Vocabulary and Vocabulary Term
+
+
+Experiment Type
+Sample Type
+Dataset Type
+Property Type
+Entity Type Validation Script and Property Type Dynamic Script
+Entity Types Update Algorithm
+General Usage
+
+
+
+
+Entity Definitions
+Space
+Project
+Experiment
+Sample
+Defining Parent and Children in Samples
+
+
+Properties and Sample Variables
+
+
+Master Data as a Core Plugin
+Known Limitations
+
+
+
+
+

@@ -4,40 +4,85 @@ This guide explains how to use the openBIS Chatbot.
 
 ## Installation
 
+### Prerequisites
+
 First, make sure you have Ollama installed and running. You can download it from [ollama.ai](https://ollama.ai/).
 
-Then, install the openBIS Chatbot package:
+You'll need the following models:
+- `nomic-embed-text` (for embeddings)
+- `qwen3` (for chat)
+
+You can pull these models with:
+```bash
+ollama pull nomic-embed-text
+ollama pull qwen3
+```
+
+### Installation from Source (Recommended)
+
+Clone the repository and install in development mode:
+
+```bash
+git clone https://github.com/yourusername/openbis-chatbot.git
+cd openbis-chatbot
+pip install -e .
+```
+
+This installs the package in development mode, allowing you to make changes to the code and have them reflected immediately.
+
+### Using pip (Not yet available)
 
 ```bash
 pip install openbis-chatbot
 ```
 
-## Scraping Content
+Note: This option will be available once the package is published to PyPI.
 
-To scrape content from the openBIS documentation website, use the `openbis-scraper` command:
+## Simple Usage (Recommended)
+
+The simplest way to use the chatbot is with a single command:
 
 ```bash
-openbis-scraper --url https://openbis.readthedocs.io/en/latest/ --output ./scraped_content --version en/latest
+python -m openbis_chatbot
 ```
 
-This will download all the documentation pages and save them as text files in the `scraped_content` directory.
+This will:
+1. Check if processed data already exists in the `data/processed` directory
+2. If it exists, start the chatbot with that data
+3. If not, automatically scrape the openBIS documentation, process it, and then start the chatbot
 
-## Processing Content
+This approach requires no additional parameters and handles the entire pipeline automatically.
 
-To process the scraped content for use in RAG, use the `openbis-processor` command:
+## Advanced Usage (Component-by-Component)
+
+If you need more control, you can still run each component separately:
+
+### Scraping Content
+
+To scrape content from the openBIS documentation website:
 
 ```bash
-openbis-processor --input ./scraped_content --output ./processed_content
+python -m openbis_chatbot scrape --url https://openbis.readthedocs.io/en/latest/ --output ./data/raw
 ```
 
-This will chunk the content, generate embeddings, and save the processed data in the `processed_content` directory.
+This will download all the documentation pages and save them as text files in the `data/raw` directory.
 
-## Running the Chatbot
+### Processing Content
 
-To run the chatbot, use the `openbis-chatbot` command:
+To process the scraped content for use in RAG:
 
 ```bash
-openbis-chatbot --data ./processed_content
+python -m openbis_chatbot process --input ./data/raw --output ./data/processed
+```
+
+This will chunk the content, generate embeddings, and save the processed data in the `data/processed` directory.
+
+### Running the Chatbot
+
+To run the chatbot with previously processed data:
+
+```bash
+python -m openbis_chatbot query --data ./data/processed
 ```
 
 This will start an interactive chatbot interface where you can ask questions about openBIS.

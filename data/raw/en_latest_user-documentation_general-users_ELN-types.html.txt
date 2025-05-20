@@ -1,0 +1,135 @@
+Title: ELN types
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/general-users/ELN-types.html#life-science-types
+---
+
+
+
+
+
+# ELN types
+
+
+
+## Standard types
+
+
+When the eln-lims plugin is enabled the following types are installed by default.
+
+
+
+### Object types
+
+
+- General protocol
+
+- Storage
+
+- Storage position
+
+- Product
+
+- Supplier
+
+- Order
+
+- Request
+
+- Publication
+
+
+
+
+
+### Collection types
+
+
+- Collection
+
+
+
+
+
+### Dataset types
+
+
+- ELN preview
+
+- Raw data
+
+- Processed data
+
+- Analyzed data
+
+- Attachment
+
+- Other data
+
+- Source code
+
+- Analysis notebook
+
+- Publication data
+
+
+
+
+
+
+## Basic default types
+
+
+The following Object types are created if the eln-lims-template-types is enabled in core plugins. This can be enabled by a system admin when openBIS is first installed (see installation steps) or at any time afterwards.
+
+
+- Entry
+
+- Experimental Step
+
+- Default Experiment
+
+
+
+
+
+## Life science types
+
+
+The following Object types are provided with the eln-lims-life-science data model which can be downloaded from Community data model. An openBIS instance admin can upload these types from the admin UI, as explained  here.
+
+
+- Antibodies
+
+- Chemicals
+
+- Enzymes
+
+- Media
+
+- Solutions and Buffers
+
+- Plasmids
+
+- Plants
+
+- Oligos
+
+- RNA
+
+- Bacteria
+
+- Cell lines
+
+- Flies
+
+- Yeasts
+
+- General protocols
+
+- PCR protocol
+
+- Western blotting protocols
+
+
+
+
+

@@ -1,0 +1,71 @@
+Title: Legacy Server-Side Extensions
+URL: https://openbis.readthedocs.io/en/latest/software-developer-documentation/legacy-server-side-extensions/index.html
+---
+
+
+
+
+
+# Legacy Server-Side Extensions
+
+
+
+- Custom Import
+Introduction
+Usage
+Configuration
+Example configuration
+
+- Processing Plugins
+Introduction
+Multiple Processing Queues
+Archiving
+
+
+Generic Processing Plugins
+RevokeLDAPUserAccessMaintenanceTask
+DataSetCopierForUsers
+DataSetCopier
+DataSetCopierForUsers
+JythonBasedProcessingPlugin
+ReportingBasedProcessingPlugin
+DataSetAndPathInfoDBConsistencyCheckProcessingPlugin
+ScreeningReportingBasedProcessingPlugin
+
+- Reporting Plugins
+Introduction
+Generic Reporting Plugins
+DecoratingTableModelReportingPlugin
+Transformations
+
+
+GenericDssLinkReportingPlugin
+AggregationService
+JythonAggregationService
+
+
+IngestionService
+JythonIngestionService
+
+
+JythonBasedReportingPlugin
+TSVViewReportingPlugin
+
+
+Screening Reporting Plugins
+ScreeningJythonBasedAggregationServiceReportingPlugin
+ScreeningJythonBasedDbModifyingAggregationServiceReportingPlugin
+ScreeningJythonBasedReportingPlugin
+
+- Search Domain Services
+Configuring a Service
+Querying a Service
+Service Implementations
+BlastDatabase
+Optional Query Parameters
+Search Results
+
+
+
+
+

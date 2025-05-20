@@ -1,0 +1,36 @@
+Title: Standalone
+URL: https://openbis.readthedocs.io/en/latest/system-documentation/standalone/index.html
+---
+
+
+
+
+
+# Standalone
+
+
+
+- System Requirements
+Architecture
+Hardware Configuration
+CPU and Memory Configuration
+Postgres Memory Settings
+Tuning Of Hardware Settings In Case Of Issues
+
+
+Operating System
+Third-Party Packages
+Additional Requirements
+
+- openBIS Server Installation
+Contents of openBIS Installer Tarball
+Installation Steps
+
+- Starting and Stopping the openBIS Application Server and Data Store Server
+Start Server
+Stop Server
+
+
+
+
+

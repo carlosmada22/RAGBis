@@ -1,0 +1,64 @@
+Title: Client-Side Extensions
+URL: https://openbis.readthedocs.io/en/latest/software-developer-documentation/client-side-extensions/index.html
+---
+
+
+
+
+
+# Client-Side Extensions
+
+
+
+- ELN-LIMS WEB UI extensions
+Introduction
+Plugin structure
+plugins folder
+config.js file
+plugin.js file
+
+
+Source Code Examples (plugin.js)
+Configuration Only Extensions
+Toolbar Extensions
+Extra Views as Utilities
+
+- openBIS webapps
+Introduction
+Example
+Directory Structure
+plugin.properties
+URL
+
+
+
+
+Server Configuration
+Jetty Configuration
+
+
+Embedding webapps in the OpenBIS UI
+Introduction
+Configuring embedded webapps
+Creating embedded webapps
+Linking to subtabs of other entity detail views
+
+
+Cross communication openBIS > DSS
+Background
+Default Configuration
+Basic Configuration
+Advanced Configuration
+
+
+Embedding openBIS Grids in Web Apps
+Requirements
+Use
+
+
+Image Viewer component
+
+
+
+
+

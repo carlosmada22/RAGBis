@@ -1,0 +1,44 @@
+Title: Development Environment
+URL: https://openbis.readthedocs.io/en/latest/software-developer-documentation/development-environment/index.html
+---
+
+
+
+
+
+# Development Environment
+
+
+
+- System Software Requirements
+
+- Architectural Overview
+Repository organization
+
+- Installation And Configuration Guide
+Building openBIS
+Where the build is found?
+Why we disable tests to make the build?
+Why the core UI made using GWT is not build anymore?
+How to compile the V3 JS bundle used by the new Admin UI in production?
+
+- Development of openBIS
+Requirements
+Step By Step
+Source Code Auto Formatting
+Commit Messages Formatting
+Source Code Copyright Header
+Typical Errors
+IntelliJ can’t find package com.sun.*, but I can compile the project using the command line!
+IntelliJ can’t find a particular method
+Test seem to run through Gradle and fail
+Test seem to run through intelliJ but throw a package not open error
+
+
+Development of NG UI
+Setting up IntelliJ Idea
+
+
+
+
+

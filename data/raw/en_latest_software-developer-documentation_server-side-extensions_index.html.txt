@@ -1,0 +1,113 @@
+Title: Server-Side Extensions
+URL: https://openbis.readthedocs.io/en/latest/software-developer-documentation/server-side-extensions/index.html
+---
+
+
+
+
+
+# Server-Side Extensions
+
+
+
+- Core Plugins
+Motivation
+Core Plugins Folder Structure
+Merging Configuration Data
+Enabling Modules and Disabling Plugins
+Enabling Modules
+Disabling Core Plugins by Property
+Disabling Core Plugins by Marker File
+
+
+Core Plugin Dependency
+Rules for Plugin Writers
+Using Java libraries in Core Plugins
+
+- Custom Application Server Services
+Introduction
+How to write a custom AS service core plugin
+How to use a custom AS service
+
+- API Listener Core Plugin (V3 API)
+Introduction
+Core Plugin
+Plugin.properties
+lib
+Example - Logging
+Example - Loggin Sources
+
+- Dropboxes
+Jython Dropboxes
+Introduction
+Simple Example
+More Realistic Example
+Model
+
+
+Details
+Dropbox Configuration
+Development mode
+Jython version
+
+
+
+
+Jython API
+IDataSetRegistrationTransaction
+TransDatabase queries
+
+
+Events / Registration Process Hooks
+Events Table
+Typical Usage Table
+
+
+
+
+Example Scripts
+Delete, Move, or Leave Alone on Error
+Summary
+Example
+Search
+API
+Experiment
+Sample and Data Set
+
+
+Authorization Service
+API
+
+
+Example
+Combined Example
+
+
+
+
+Error Handling
+Automatic Retry (auto recovery)
+Manual Recovery
+
+
+Classpath / Configuration
+Validation scripts
+Global Thread Parameters
+Sending Emails from a Drop box
+Java Dropboxes
+Configuration
+Implementation
+
+
+Sending Emails in a drop box (simple)
+Java Dropbox Example
+
+
+Calling an Aggregation Service from a drop box
+Known limitations
+Blocking
+
+
+
+
+

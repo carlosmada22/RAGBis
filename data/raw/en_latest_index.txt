@@ -1,0 +1,74 @@
+Title: OpenBIS Documentation
+URL: https://openbis.readthedocs.io/en/latest/
+---
+
+
+
+
+
+# OpenBIS Documentation
+
+
+The complete solution for managing your research data.
+
+
+
+
+
+
+
+
+
+## User Documentation
+
+
+
+- General Users
+
+- General Admin Users
+
+- Advance Features
+
+- Legacy Advance Features
+
+
+
+
+
+
+## Software Developer Documentation
+
+
+
+- Development Environment
+
+- APIS
+
+- Server-Side Extensions
+
+- Client-Side Extensions
+
+- Legacy Server-Side Extensions
+
+
+
+
+
+
+## System Documentation
+
+
+
+- Standalone
+
+- Docker
+
+- Advanced configuration
+
+- Change Log
+
+
+
+
+
+

@@ -1,0 +1,278 @@
+Title: General Users
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/general-users/index.html
+---
+
+
+
+
+
+# General Users
+
+
+
+- General Overview
+Login
+File based and/or LDAP authentication
+SWITCHaai authentication
+
+- ELN types
+Standard types
+Object types
+Collection types
+Dataset types
+
+
+Basic default types
+Life science types
+
+- Inventory Of Materials And Methods
+Customise Collection View
+Register single entries in a Collection
+Batch register entries in a Collection
+Batch registration via Excel template file
+Codes
+Controlled vocabularies
+Assign parents
+Date format
+
+
+Register storage positions and samples in the same XLS file
+Batch registration via TSV template file
+Rules to follow to fill in the template .tsv file
+
+
+Advantages of XLS batch registration vs the old batch registration
+
+
+Batch register entries in several Collections
+XLS Batch Register Objects
+TSV Batch Register Objects
+
+
+Batch update entries in a Collection
+XLS Batch Update Objects
+TSV Batch Update Objects
+
+
+Batch update entries in several Collections
+XLS Batch Update Objects
+TSV Batch Update Objects
+
+
+Copy entries
+Move entries to a different Collection
+Move from entry form
+Move from Collection Table
+
+
+Register Protocols in the Methods Inventory
+LINKS TO SAMPLES, MATERIALS, OTHER PROTOCOLS
+
+- Managing Storage Of Samples
+Allocate storage positions to samples
+Register storage position for a single sample
+Add additional metadata to storage positions
+
+
+Batch register storage positions
+XLS Batch Registration
+Batch Registration with TSV file
+
+
+
+
+Batch update storage positions
+Delete storage positions
+Delete single storage positions
+Remove one of multiple positions in the same box
+Delete multiple storage positions
+
+
+Overview of lab storages
+Overview of lab Storages
+Change storage position of samples
+
+- Barcodes and QR codes
+Barcodes and QR codes
+Barcodes for individual samples
+Generate batches of barcodes / QR codes
+Scan barcodes from mobile devices
+
+
+Printer and Barcode Scanner Requirements
+Printers
+Printer Configuration
+Printer testing
+Printer Advice before purchasing
+Tested Printers
+
+
+Scanners
+Scanner Configuration
+Scanner testing
+Scanner Advice before purchasing
+Tested Scanners
+
+- Lab Notebook
+Register Projects
+Register Experiments
+Register a Default Experiment:
+Register a Collection:
+
+
+Register Experimental Steps
+Comments Log
+
+
+Add parents and children to Experimental Steps
+Adding a parent
+Adding a parent of a predefined type in the form
+Adding parent of any available type
+Adding parent via barcodes
+
+
+Removing a parent
+Adding and Removing Children
+Children Generator
+
+
+Parent-child relationships between entries in lab notebook
+
+
+How to use protocols in Experimental Steps
+Move Experimental Steps
+Copy Experimental Steps
+Use templates for Experimental Steps
+Datasets tables
+Data Access
+Example of SFTP Net Drive connection:
+Example of Cyber Duck configuration
+Example of  Dolphin File Manager configuration
+SFTP access via session token
+
+
+Move Datasets
+Move one Experiment to a different Project
+Project Overview
+Edit and Delete Projects, Experiments, Experimental Steps
+Share Lab Notebooks and Projects
+Rich Text Editor
+EMBED IMAGES IN TEXT FIELDS
+
+- Data Upload
+Data upload via web UI
+Data upload via dropbox
+Dropbox with markerfile
+How to create the Marker file in Windows
+How to create the Marker file on Mac
+
+
+Dropbox monitor
+Registration of metadata for datasets via dropbox
+
+- Export
+Export to File
+Export Lab Notebooks & Inventory Spaces
+1. Import-compatible export of a Space selecting all options
+2. Non import-compatible export of a Space selecting all options
+
+
+Export to Zenodo
+Create Zenodo Personal Access Token
+Save Zenodo Personal Access Token in openBIS
+Export data to Zenodo
+
+
+Export data to Zenodo in a multi-group instance
+Export to ETH Research Collection
+Export data to the ETH Research Collection in a multi-group instance
+
+- Data archiving
+Dataset archiving
+Dataset archiving helper tool
+
+
+Dataset unarchiving
+Dataset unarchiving helper tool
+
+- Search
+Advanced search
+Search for: All
+Search for: Experiment/Collection
+Search for: Object
+Search for: Dataset
+Search for: specific Object Type (e.g Experimental Step)
+Search Collection
+
+
+Search
+Global search
+BLAST search
+Data Set File search
+
+
+Save and reuse searches
+
+- Additional Functionalities
+Print PDF
+Visualise Relationships
+Tables
+Filters
+Sorting
+Exports
+Columns
+Spreadsheets
+Text fields
+
+
+Selection of entries in table
+
+
+Browse Entries by Type
+Trashcan
+Visualize Available Storage Space
+Vocabulary Browser
+Freeze Entities
+How to freeze an entity
+
+
+Navigation menu
+Custom Imports
+Entity history
+History table for Collections
+History table for Objects
+History table for Datasets
+
+
+Spreadsheet
+Session Token
+
+- Managing Lab Stocks and Orders
+STOCK CATALOG
+Building the catalog of products and suppliers
+Catalog of suppliers
+Catalog of products
+
+
+Creating requests for products to order
+
+
+STOCK ORDERS
+Processing product orders from requests
+
+- Tools For Analysis Of Data Stored In Openbis
+Jupyter Notebooks
+How to use Jupyter notebooks from openBIS
+Overview of Jupyter notebook opened from openBIS.
+What to do in case of invalid session token
+
+
+Using a local Jupyter installation with openBIS
+
+
+MATLAB toolbox
+
+
+
+
+

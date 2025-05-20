@@ -1,0 +1,40 @@
+Title: Legacy Advance Features
+URL: https://openbis.readthedocs.io/en/latest/user-documentation/legacy-advance-features/index.html
+---
+
+
+
+
+
+# Legacy Advance Features
+
+
+
+- openBIS KNIME Nodes
+Introduction
+Installation
+Usage
+Nodes
+Definining openBIS URLs
+Defining User Credentials for Authentication
+openBIS Query Reader
+openBIS Report Reader
+openBIS Data Set File Importer
+openBIS Data Set Registration (Flow Variable Port)
+Usage
+
+
+openBIS Data Set Registration (URI Port)
+openBIS Aggregation Service Report Reader
+openBIS Aggregated Data File Importer
+
+
+KNIME Aggregation Service Specifications
+KNIME Aggregation Service Helper API
+Example for an Aggregation Service Report Reader
+Example for an Aggregated Data File Importer
+
+
+
+
+
