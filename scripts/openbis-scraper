@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""
+Command-line script for the openBIS scraper.
+"""
+
+import sys
+from openbis_chatbot.scraper.cli import main
+
+if __name__ == "__main__":
+    sys.exit(main())

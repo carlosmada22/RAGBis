@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""
+Command-line script for the openBIS chatbot.
+"""
+
+import sys
+from openbis_chatbot.query.cli import main
+
+if __name__ == "__main__":
+    sys.exit(main())
