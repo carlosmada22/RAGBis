@@ -47,7 +47,7 @@ This will start an interactive chatbot interface where you can ask questions abo
 Here are some example questions you can ask the chatbot:
 
 - What is openBIS?
-- How do I create a new experiment in openBIS?
-- How can I register a new entity type in openBIS?
+- How do I create a new collection in openBIS?
+- How can I register a new object in openBIS?
 - What are the main features of openBIS?
 - How do I search for data in openBIS?
