@@ -68,11 +68,19 @@ python -m openbis_chatbot scrape --url https://openbis.readthedocs.io/en/latest/
 python -m openbis_chatbot process --input ./data/raw --output ./data/processed
 ```
 
-#### Running the Chatbot
+#### Running the Chatbot (CLI)
 
 ```bash
 python -m openbis_chatbot query --data ./data/processed
 ```
+
+#### Running the Web Interface
+
+```bash
+python -m openbis_chatbot web --data ./data/processed
+```
+
+This will start a web server on http://localhost:5000 where you can interact with the chatbot through a browser.
 
 ## Command-Line Options
 
@@ -101,13 +109,24 @@ python -m openbis_chatbot query --data ./data/processed
 --verbose             Enable verbose logging
 ```
 
-### Chatbot
+### Chatbot (CLI)
 
 ```
 --data DATA           The directory containing the processed content
 --model MODEL         The Ollama model to use for chat (default: qwen3)
---top-k TOP_K         The number of chunks to retrieve (default: 3)
+--top-k TOP_K         The number of chunks to retrieve (default: 5)
 --verbose             Enable verbose logging
+```
+
+### Web Interface
+
+```
+--data DATA           The directory containing the processed content (default: ./data/processed)
+--host HOST           The host to run the web interface on (default: 0.0.0.0)
+--port PORT           The port to run the web interface on (default: 5000)
+--model MODEL         The Ollama model to use for chat (default: qwen3)
+--top-k TOP_K         The number of chunks to retrieve (default: 5)
+--debug               Enable debug mode
 ```
 
 ## How It Works
@@ -137,6 +156,15 @@ The query engine works by:
 3. Finding the most relevant chunks based on cosine similarity
 4. Creating a prompt with the query and the relevant chunks
 5. Generating an answer using Ollama's chat model
+
+### Web Interface
+
+The web interface works by:
+1. Starting a Flask web server
+2. Serving a responsive HTML/CSS/JavaScript chat interface
+3. Handling API requests from the frontend
+4. Using the query engine to generate responses
+5. Returning the responses to the frontend in JSON format
 
 ## License
 

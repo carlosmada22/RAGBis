@@ -28,7 +28,7 @@ def parse_args(args=None):
     parser.add_argument("--data", required=True, help="The directory containing the processed content")
     parser.add_argument("--api-key", help="Not used for Ollama, kept for compatibility")
     parser.add_argument("--model", default="qwen3", help="The Ollama model to use for chat")
-    parser.add_argument("--top-k", type=int, default=3, help="The number of chunks to retrieve")
+    parser.add_argument("--top-k", type=int, default=5, help="The number of chunks to retrieve")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
     return parser.parse_args(args)

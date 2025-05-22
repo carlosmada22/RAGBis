@@ -12,22 +12,19 @@ class TestMain:
 
     def test_main_no_command(self):
         """Test the main function with no command."""
-        with patch("sys.argv", ["openbis-chatbot"]):
-            with patch("argparse.ArgumentParser.parse_args") as mock_parse_args:
-                with patch("argparse.ArgumentParser.print_help") as mock_print_help:
-                    # Mock the argument parser to return a namespace with command=None
-                    mock_args = MagicMock()
-                    mock_args.command = None
-                    mock_parse_args.return_value = mock_args
+        with patch("openbis_chatbot.__main__.auto_mode") as mock_auto_mode:
+            # Mock the auto_mode function to return 0
+            mock_auto_mode.return_value = 0
 
-                    # Call the main function
-                    result = main()
+            with patch("sys.argv", ["openbis-chatbot"]):
+                # Call the main function
+                result = main()
 
-                    # Check that the help was printed
-                    mock_print_help.assert_called_once()
+                # Check that auto_mode was called
+                mock_auto_mode.assert_called_once()
 
-                    # Check that the function returned 1 (error)
-                    assert result == 1
+                # Check that the function returned 0 (success)
+                assert result == 0
 
     def test_main_invalid_command(self):
         """Test the main function with an invalid command."""

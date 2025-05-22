@@ -3,11 +3,10 @@ Unit tests for the RAGQueryEngine class.
 """
 
 import pytest
-import json
 import tempfile
 import numpy as np
 from pathlib import Path
-from unittest.mock import patch, MagicMock, mock_open
+from unittest.mock import patch, MagicMock
 
 from src.openbis_chatbot.query.query import RAGQueryEngine
 

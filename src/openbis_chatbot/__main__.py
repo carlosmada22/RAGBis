@@ -10,6 +10,7 @@ import logging
 from openbis_chatbot.scraper.cli import main as scraper_main
 from openbis_chatbot.processor.cli import main as processor_main
 from openbis_chatbot.query.cli import main as query_main
+from openbis_chatbot.web.cli import main as web_main
 from openbis_chatbot.utils.logging import setup_logging
 
 # Configure logging
@@ -151,8 +152,16 @@ def main():
     query_parser.add_argument("--data", required=True, help="The directory containing the processed content")
     query_parser.add_argument("--api-key", help="Not used for Ollama, kept for compatibility")
     query_parser.add_argument("--model", default="qwen3", help="The Ollama model to use for chat")
-    query_parser.add_argument("--top-k", type=int, default=3, help="The number of chunks to retrieve")
+    query_parser.add_argument("--top-k", type=int, default=5, help="The number of chunks to retrieve")
     query_parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
+
+    # Web command
+    web_parser = subparsers.add_parser("web", help="Run the web interface")
+    web_parser.add_argument("--data", default=DEFAULT_PROCESSED_DIR, help="The directory containing the processed content")
+    web_parser.add_argument("--host", default="0.0.0.0", help="The host to run the web interface on")
+    web_parser.add_argument("--port", type=int, default=5000, help="The port to run the web interface on")
+    web_parser.add_argument("--model", default="qwen3", help="The Ollama model to use for chat")
+    web_parser.add_argument("--debug", action="store_true", help="Enable debug mode")
 
     # Auto command (hidden, for internal use)
     subparsers.add_parser("auto", help=argparse.SUPPRESS)
@@ -165,6 +174,8 @@ def main():
         return processor_main()
     elif args.command == "query":
         return query_main()
+    elif args.command == "web":
+        return web_main()
     elif args.command == "auto":
         return auto_mode()
     else:

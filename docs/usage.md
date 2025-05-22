@@ -53,6 +53,22 @@ This will:
 
 This approach requires no additional parameters and handles the entire pipeline automatically.
 
+### Specifying a Different Model
+
+By default, the chatbot uses the `qwen3` model from Ollama. If you want to use a different model, you can specify it with the `--model` parameter:
+
+```bash
+python -m openbis_chatbot --model llama3
+```
+
+Available models depend on your Ollama installation. Some common options include:
+- `qwen3` (default)
+- `llama3`
+- `mistral`
+- `gemma`
+
+Make sure the model is available in your Ollama installation before using it.
+
 ## Advanced Usage (Component-by-Component)
 
 If you need more control, you can still run each component separately:
@@ -77,15 +93,36 @@ python -m openbis_chatbot process --input ./data/raw --output ./data/processed
 
 This will chunk the content, generate embeddings, and save the processed data in the `data/processed` directory.
 
-### Running the Chatbot
+### Running the Chatbot (CLI)
 
-To run the chatbot with previously processed data:
+To run the chatbot with previously processed data in the command line:
 
 ```bash
 python -m openbis_chatbot query --data ./data/processed
 ```
 
-This will start an interactive chatbot interface where you can ask questions about openBIS.
+This will start an interactive command-line chatbot interface where you can ask questions about openBIS.
+
+You can further customize the CLI interface with these options:
+- `--top-k`: The number of chunks to retrieve (default: 5)
+- `--verbose`: Enable verbose logging
+
+### Running the Web Interface
+
+To run the chatbot with a web interface:
+
+```bash
+python -m openbis_chatbot web --data ./data/processed
+```
+
+This will start a web server on http://localhost:5000 where you can interact with the chatbot through a browser. The web interface provides a more user-friendly experience with a modern chat interface.
+
+You can customize the web server with these options:
+- `--host`: The host to run the web interface on (default: 0.0.0.0)
+- `--port`: The port to run the web interface on (default: 5000)
+- `--model`: The Ollama model to use for chat (default: qwen3)
+- `--top-k`: The number of chunks to retrieve (default: 5)
+- `--debug`: Enable debug mode for development
 
 ## Example Questions
 
