@@ -77,10 +77,22 @@ python -m openbis_chatbot query --data ./data/processed
 #### Running the Web Interface
 
 ```bash
-python -m openbis_chatbot web --data ./data/processed
+python -m openbis_chatbot --web
 ```
 
 This will start a web server on http://localhost:5000 where you can interact with the chatbot through a browser.
+
+Alternatively, you can use the provided script:
+
+```bash
+python scripts/run_web.py
+```
+
+Or customize the web interface with additional parameters:
+
+```bash
+python -m openbis_chatbot.web.cli --data ./data/processed --host 127.0.0.1 --port 5000
+```
 
 ## Command-Line Options
 

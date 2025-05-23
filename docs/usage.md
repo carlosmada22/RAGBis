@@ -109,13 +109,29 @@ You can further customize the CLI interface with these options:
 
 ### Running the Web Interface
 
-To run the chatbot with a web interface:
+To run the chatbot with a web interface, you have several options:
+
+#### Option 1: Using the --web flag (Recommended)
 
 ```bash
-python -m openbis_chatbot web --data ./data/processed
+python -m openbis_chatbot --web
 ```
 
 This will start a web server on http://localhost:5000 where you can interact with the chatbot through a browser. The web interface provides a more user-friendly experience with a modern chat interface.
+
+#### Option 2: Using the provided script
+
+```bash
+python scripts/run_web.py
+```
+
+This will also start a web server with default settings.
+
+#### Option 3: Using the web module directly (for advanced customization)
+
+```bash
+python -m openbis_chatbot.web.cli --data ./data/processed --host 127.0.0.1 --port 5000
+```
 
 You can customize the web server with these options:
 - `--host`: The host to run the web interface on (default: 0.0.0.0)

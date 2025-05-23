@@ -86,6 +86,41 @@ def check_data_exists():
     chunks_path = os.path.join(DEFAULT_PROCESSED_DIR, "chunks.json")
     return os.path.exists(chunks_path)
 
+def run_web_interface():
+    """Run the web interface with default settings."""
+    setup_logging(logging.INFO)
+
+    if check_data_exists():
+        logger.info("Found existing processed data. Starting web interface...")
+        # Save original argv
+        original_argv = sys.argv.copy()
+
+        # Temporarily modify sys.argv for the web module
+        sys.argv = ["openbis-chatbot"]
+
+        # Import and use the parse_args function from web.cli
+        from openbis_chatbot.web.cli import parse_args
+        args = parse_args([
+            "--data", DEFAULT_PROCESSED_DIR,
+            "--host", "127.0.0.1",
+            "--port", "5000"
+        ])
+
+        # Restore original argv
+        sys.argv = original_argv
+
+        # Call web_main with the parsed args
+        from openbis_chatbot.web.cli import run_with_args
+        return run_with_args(args)
+    else:
+        logger.info("No processed data found. Running full pipeline first...")
+        result = run_full_pipeline()
+        if result != 0:
+            return result
+
+        # Now run the web interface
+        return run_web_interface()
+
 def auto_mode():
     """Automatically determine what to do based on data availability."""
     setup_logging(logging.INFO)
@@ -125,6 +160,9 @@ def main():
         description="openBIS Chatbot - A RAG-based chatbot for the openBIS documentation.",
         prog="openbis-chatbot"
     )
+
+    # Add --web flag to run the web interface
+    parser.add_argument("--web", action="store_true", help="Run the web interface instead of the CLI")
 
     subparsers = parser.add_subparsers(dest="command", help="Command to run")
 
@@ -167,6 +205,10 @@ def main():
     subparsers.add_parser("auto", help=argparse.SUPPRESS)
 
     args = parser.parse_args()
+
+    # Check if --web flag is set
+    if hasattr(args, 'web') and args.web:
+        return run_web_interface()
 
     if args.command == "scrape":
         return scraper_main()
