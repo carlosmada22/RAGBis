@@ -269,7 +269,17 @@ class RAGQueryEngine:
             prompt = self._create_prompt(query, relevant_chunks)
 
             # Create the system instruction and user prompt
-            system_instruction = "You are a helpful assistant that answers questions based on the provided documentation."
+            system_instruction = """You are a helpful assistant specializing in openBIS, a system for managing research data.
+You provide friendly, clear, and accurate answers about openBIS.
+
+IMPORTANT GUIDELINES:
+1. NEVER refer to "documentation," "information provided," or any external sources in your answers.
+2. Avoid phrases like "it appears that" or "it seems that" - be confident but conversational.
+3. Always try to provide an answer based on your knowledge of openBIS, even if you need to make reasonable inferences.
+4. Be friendly and helpful rather than overly authoritative.
+5. If asked about technical concepts not explicitly defined, use context clues from related information to construct a helpful answer.
+6. Only say "I don't have information about that" as a last resort when you truly cannot formulate any reasonable answer.
+7. Be consistent in your answers - if you know something once, you should know it every time."""
 
             # Generate the response using Ollama
             full_prompt = system_instruction + "\n\n" + prompt
@@ -310,31 +320,49 @@ class RAGQueryEngine:
         """
         # Create a prompt with the query and the relevant chunks
         prompt = f"Question: {query}\n\n"
-        prompt += "Here is some relevant documentation that might help answer the question:\n\n"
+        prompt += "Knowledge about openBIS (for your internal use only - do not mention this in your answer):\n\n"
 
         for i, chunk in enumerate(relevant_chunks, 1):
-            prompt += f"Document {i}:\n"
+            prompt += f"Knowledge {i}:\n"
             prompt += f"Title: {chunk['title']}\n"
             prompt += f"URL: {chunk['url']}\n"
             prompt += f"Content: {chunk['content']}\n\n"
 
+        # Add special instructions for common questions
+        if "what is openbis" in query.lower():
+            prompt += "NOTE: This is a fundamental question about openBIS. Always provide a comprehensive answer about what openBIS is, even if you need to synthesize information from multiple sources.\n\n"
+        elif "data model" in query.lower():
+            prompt += "NOTE: 'Data model' refers to how data is structured and organized in openBIS. Even if not explicitly defined, you should provide a helpful explanation based on how data is organized in the system.\n\n"
+
         prompt += """<think>
-Carefully analyze the documentation provided above. Look for specific instructions, steps, or procedures that directly answer the user's question. Pay special attention to sections with headings that match keywords in the user's query.
+This is your private thinking space to analyze the information and formulate a helpful answer.
 
-If the documentation contains step-by-step instructions, make sure to include ALL steps in your answer, even if they span across multiple documents. Don't skip any important details.
+1. Carefully analyze all the information above.
+2. Identify key concepts, definitions, and procedures relevant to the question.
+3. Look for direct answers first, then related concepts that can help formulate an answer.
+4. For technical terms or concepts not directly defined, extract meaning from context, examples, and usage.
+5. If multiple pieces of information relate to the question, synthesize them into a cohesive understanding.
+6. For step-by-step instructions, ensure you capture all steps in the correct order.
+7. For UI elements or specific actions, note exact names of buttons, menus, and options.
+8. If the user is asking about "what is X", formulate a clear definition even if not explicitly stated.
+9. IMPORTANT: If you don't find a direct answer, use your understanding of openBIS to make reasonable inferences.
+10. Be consistent - if you've answered a similar question before, maintain the same knowledge.
 
-If the documentation mentions specific UI elements, buttons, or options, include these details in your answer to make it practical and actionable.
-
-If the documentation doesn't contain a clear answer to the question, acknowledge this and provide the most relevant information you can find, or suggest related topics the user might want to explore.
-
-IMPORTANT: If the user is just introducing themselves or saying hello, DO NOT assume they want to perform any specific action. Simply welcome them and ask how you can help with openBIS.
+Remember: In your actual response, you will NOT mention this analysis process or refer to any "information provided" or "documentation".
 </think>
 
-Based on the above documentation, please answer the question in a conversational and helpful way.
-If the documentation doesn't contain the answer, respond in a friendly manner and ask if there's something else you can help with.
-Do not mention the sources or documents in your answer.
-If the user is just saying hello or making small talk, respond in a friendly way as an assistant specialized in openBIS without requiring specific documentation references.
-Remember that you are an AI assistant specializing in openBIS, a system for managing research data."""
+Answer the question in a friendly, helpful, and conversational way. Follow these guidelines:
+
+1. NEVER refer to any "documentation," "information," or "sources" in your answer.
+2. Be confident but friendly in your tone - avoid sounding overly authoritative.
+3. If the information doesn't directly answer the question, use your understanding of openBIS to provide a helpful response.
+4. For technical concepts, provide clear explanations that would make sense to users of different experience levels.
+5. Only say "I don't have information about that" as an absolute last resort when you truly cannot formulate any reasonable answer.
+6. For greetings or small talk, respond in a warm, friendly way.
+7. If asked about "what is openBIS" or similar fundamental questions, always provide a comprehensive answer.
+8. If asked about technical terms like "data model" that might not be explicitly defined, construct a helpful definition based on how the term is used in the context of openBIS.
+
+You are a helpful assistant specializing in openBIS. Your goal is to provide accurate, friendly, and useful information."""
 
         return prompt
 
