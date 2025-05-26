@@ -118,5 +118,27 @@ scraped_content/
 processed_content/
 scraped_content_*/
 processed_content_*/
-*.json
-*.csv
+
+# Conversation memory databases
+conversation_memory.db
+conversation_memory.db-shm
+conversation_memory.db-wal
+
+# Temporary test files in root
+test_*.py
+test_*.html
+debug_*.py
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Keep important data files but ignore temporary ones
+# *.json  # Commented out to keep processed chunks
+# *.csv   # Commented out to keep processed chunks

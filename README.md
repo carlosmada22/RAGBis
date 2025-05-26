@@ -1,14 +1,27 @@
 # openBIS Chatbot
 
-A RAG-based chatbot for the openBIS documentation.
+A RAG-based chatbot with memory for the openBIS documentation, powered by LangGraph and Ollama.
 
 ## Overview
 
-This project provides a chatbot that can answer questions about openBIS using Retrieval Augmented Generation (RAG). It consists of three main components:
+This project provides an intelligent chatbot that can answer questions about openBIS using Retrieval Augmented Generation (RAG) with conversation memory. The chatbot remembers previous interactions within a session and provides contextually aware responses.
+
+### Key Features
+
+- **RAG-powered responses**: Uses openBIS documentation for accurate, up-to-date answers
+- **Conversation memory**: Remembers user names, previous questions, and context using LangGraph
+- **Session management**: Maintains separate conversations with unique session IDs
+- **Clean responses**: Filters out internal reasoning for user-friendly output
+- **Multi-interface**: Available as both CLI and web interface
+- **Persistent storage**: Conversation history stored in SQLite database
+
+### Components
 
 1. **Scraper**: Scrapes content from the openBIS documentation website
 2. **Processor**: Processes the scraped content for use in RAG
-3. **Query Engine**: Provides a chatbot interface for querying the processed content
+3. **Conversation Engine**: LangGraph-based engine with memory and RAG integration
+4. **Web Interface**: Browser-based chat interface with session management
+5. **CLI Interface**: Command-line chat interface with memory
 
 ## Installation
 
@@ -18,6 +31,15 @@ This project provides a chatbot that can answer questions about openBIS using Re
 - [Ollama](https://ollama.ai/) with the following models:
   - `nomic-embed-text` (for embeddings)
   - `qwen3` (for chat)
+
+### Dependencies
+
+The project uses the following key dependencies:
+- **LangGraph**: For conversation flow and memory management
+- **LangChain**: For LLM integration and message handling
+- **Flask**: For the web interface
+- **SQLite**: For persistent conversation storage
+- **Ollama**: For local LLM inference
 
 ### From Source (Recommended)
 
@@ -68,19 +90,31 @@ python -m openbis_chatbot scrape --url https://openbis.readthedocs.io/en/latest/
 python -m openbis_chatbot process --input ./data/raw --output ./data/processed
 ```
 
-#### Running the Chatbot (CLI)
+#### Running the Chatbot (CLI with Memory)
 
 ```bash
 python -m openbis_chatbot query --data ./data/processed
 ```
 
-#### Running the Web Interface
+The CLI now includes conversation memory features:
+- Remembers your name and previous questions within a session
+- Type `clear` to start a new conversation
+- Type `exit` or `quit` to end the session
+- Use `--session-id <id>` to continue a previous conversation
+
+#### Running the Web Interface (with Memory)
 
 ```bash
 python -m openbis_chatbot --web
 ```
 
 This will start a web server on http://localhost:5000 where you can interact with the chatbot through a browser.
+
+The web interface includes:
+- **Session persistence**: Conversations continue across page refreshes
+- **Clear chat button**: Start fresh conversations anytime
+- **Memory indicators**: See conversation length and token usage in browser console
+- **Responsive design**: Works on desktop and mobile devices
 
 Alternatively, you can use the provided script:
 
@@ -121,12 +155,13 @@ python -m openbis_chatbot.web.cli --data ./data/processed --host 127.0.0.1 --por
 --verbose             Enable verbose logging
 ```
 
-### Chatbot (CLI)
+### Chatbot (CLI with Memory)
 
 ```
 --data DATA           The directory containing the processed content
 --model MODEL         The Ollama model to use for chat (default: qwen3)
---top-k TOP_K         The number of chunks to retrieve (default: 5)
+--memory-db PATH      Path to SQLite database for conversation memory
+--session-id ID       Session ID to continue a previous conversation
 --verbose             Enable verbose logging
 ```
 
@@ -160,14 +195,24 @@ The processor works by:
 3. Generating embeddings for each chunk using Ollama's embedding model
 4. Saving the chunks and their embeddings to JSON and CSV files
 
-### Query Engine
+### Conversation Engine (LangGraph-based)
 
-The query engine works by:
-1. Loading the processed chunks and their embeddings
-2. Generating an embedding for the user's query
-3. Finding the most relevant chunks based on cosine similarity
-4. Creating a prompt with the query and the relevant chunks
-5. Generating an answer using Ollama's chat model
+The conversation engine works by:
+1. **State Management**: Maintains conversation state using LangGraph's StateGraph
+2. **Memory Persistence**: Stores conversation history in SQLite using LangGraph checkpoints
+3. **RAG Integration**: Retrieves relevant chunks based on user queries
+4. **Context Assembly**: Combines conversation history, RAG context, and current query
+5. **Response Generation**: Uses Ollama's chat model with full conversation context
+6. **Response Cleaning**: Removes internal reasoning tags for clean user output
+7. **Session Management**: Maintains separate conversations with unique session IDs
+
+### Memory Features
+
+- **Conversation History**: Remembers both user messages and assistant responses
+- **Session Isolation**: Different sessions don't share memory
+- **Token Management**: Automatically limits conversation length (20 messages max)
+- **Persistent Storage**: Conversations survive application restarts
+- **Context Awareness**: Assistant remembers its own previous offers and responses
 
 ### Web Interface
 
@@ -177,6 +222,37 @@ The web interface works by:
 3. Handling API requests from the frontend
 4. Using the query engine to generate responses
 5. Returning the responses to the frontend in JSON format
+
+## Project Structure
+
+```
+openbis-chatbot/
+├── src/openbis_chatbot/          # Main package
+│   ├── scraper/                  # Web scraping components
+│   ├── processor/                # Content processing components
+│   ├── query/                    # Query and conversation engine
+│   │   ├── conversation_engine.py # LangGraph-based conversation engine
+│   │   ├── query.py              # RAG query engine
+│   │   └── cli.py                # CLI interface with memory
+│   ├── web/                      # Web interface
+│   └── utils/                    # Utility functions
+├── tests/                        # Test suite
+├── scripts/                      # Utility scripts
+├── data/                         # Data directory
+│   ├── raw/                      # Scraped content
+│   └── processed/                # Processed chunks and embeddings
+├── docs/                         # Documentation
+│   └── presentations/            # Project presentations
+└── requirements.txt              # Python dependencies
+```
+
+## Memory and Token Usage
+
+- **Average tokens per exchange**: ~800-900 tokens
+- **Memory overhead**: ~100-200 tokens for conversation history
+- **RAG context**: ~500-600 tokens per query
+- **Conversation limit**: 20 messages (10 exchanges) per session
+- **Storage**: SQLite database for persistent conversation history
 
 ## License
 

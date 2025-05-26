@@ -10,8 +10,15 @@
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1><i class="fas fa-robot"></i> openBIS Assistant</h1>
-            <p>Ask me anything about openBIS!</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-robot"></i> openBIS Assistant</h1>
+                    <p>Ask me anything about openBIS! I remember our conversation.</p>
+                </div>
+                <button id="clear-chat-btn" class="clear-btn" title="Clear conversation history">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant">

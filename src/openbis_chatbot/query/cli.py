@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-Command-line interface for the RAG query engine.
+Command-line interface for the conversation engine with memory.
 """
 
 import argparse
 import logging
 import sys
+import os
+import re
 from dotenv import load_dotenv
 
-from openbis_chatbot.query.query import RAGQueryEngine
+from openbis_chatbot.query.conversation_engine import ConversationEngine
 
 # Configure logging
 logging.basicConfig(
@@ -24,36 +26,56 @@ load_dotenv()
 
 def parse_args(args=None):
     """Parse command-line arguments."""
-    parser = argparse.ArgumentParser(description="Query processed content using RAG.")
+    parser = argparse.ArgumentParser(description="Chat with openBIS Assistant using conversation memory.")
     parser.add_argument("--data", required=True, help="The directory containing the processed content")
-    parser.add_argument("--api-key", help="Not used for Ollama, kept for compatibility")
     parser.add_argument("--model", default="qwen3", help="The Ollama model to use for chat")
-    parser.add_argument("--top-k", type=int, default=5, help="The number of chunks to retrieve")
+    parser.add_argument("--memory-db", help="Path to SQLite database for conversation memory (default: data/conversation_memory.db)")
+    parser.add_argument("--session-id", help="Session ID to continue a previous conversation")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
     return parser.parse_args(args)
 
 
+def clean_response(response):
+    """Remove <think></think> tags from the response."""
+    # Remove everything between <think> and </think> tags (including the tags)
+    cleaned = re.sub(r'<think>.*?</think>\s*', '', response, flags=re.DOTALL)
+    return cleaned.strip()
+
+
 def run_with_args(args):
-    """Run the query engine with the given arguments."""
+    """Run the conversation engine with the given arguments."""
     # Set logging level
     if args.verbose:
         logger.setLevel(logging.DEBUG)
 
-    # API key is not used for Ollama, but kept for compatibility
-    api_key = args.api_key
+    # Set up memory database path
+    if args.memory_db:
+        memory_db_path = args.memory_db
+    else:
+        memory_db_path = os.path.join(args.data, "conversation_memory.db")
 
     try:
-        # Create the query engine
-        query_engine = RAGQueryEngine(
+        # Create the conversation engine
+        conversation_engine = ConversationEngine(
             data_dir=args.data,
-            api_key=api_key,
-            model=args.model
+            model=args.model,
+            memory_db_path=memory_db_path
         )
 
-        # Interactive query loop
-        print("🤖 openBIS Assistant")
-        print("I'm here to help you with questions about openBIS. Type 'exit' or 'quit' to end our conversation.")
+        # Get or create session ID
+        session_id = args.session_id
+        if session_id:
+            print(f"📝 Continuing conversation with session: {session_id}")
+        else:
+            session_id = conversation_engine.create_session()
+            print(f"📝 Started new conversation with session: {session_id}")
+
+        # Interactive conversation loop
+        print("🤖 openBIS Assistant with Memory")
+        print("I'm here to help you with questions about openBIS. I'll remember our conversation!")
+        print("Type 'exit' or 'quit' to end our conversation.")
+        print("Type 'clear' to start a new conversation.")
         print()
 
         while True:
@@ -65,25 +87,33 @@ def run_with_args(args):
                 print("Goodbye! Have a great day!")
                 break
 
+            # Clear conversation if user types 'clear'
+            if query.lower() == "clear":
+                conversation_engine.clear_session(session_id)
+                session_id = conversation_engine.create_session()
+                print(f"🔄 Started new conversation with session: {session_id}")
+                continue
+
             # Skip empty queries
             if not query.strip():
                 continue
 
             try:
-                # Query the processed content
-                answer, relevant_chunks = query_engine.query(query, top_k=args.top_k)
+                # Process the conversation with memory
+                response, session_id, metadata = conversation_engine.chat(query, session_id)
 
-                # Print the answer without the sources
-                print(f"\nAssistant: {answer}\n")
+                # Clean the response to remove <think></think> tags
+                clean_answer = clean_response(response)
 
-                # Log the sources but don't display them
+                # Print the cleaned answer
+                print(f"\nAssistant: {clean_answer}\n")
+
+                # Log metadata if verbose
                 if args.verbose:
-                    logger.info("Sources used:")
-                    for i, chunk in enumerate(relevant_chunks, 1):
-                        logger.info(f"{i}. {chunk['title']} - {chunk['url']}")
+                    logger.info(f"Conversation metadata: {metadata}")
 
             except Exception as e:
-                logger.error(f"Error querying: {e}")
+                logger.error(f"Error in conversation: {e}")
                 print("I'm sorry, I encountered an error. Please try again or ask a different question.")
 
         return 0
