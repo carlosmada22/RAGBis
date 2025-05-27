@@ -6,9 +6,7 @@ This module provides a conversation engine that maintains memory across
 multiple interactions using LangGraph's state management and persistence.
 """
 
-import json
 import logging
-import sqlite3
 import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, TypedDict, Annotated
@@ -18,7 +16,7 @@ import uuid
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.checkpoint import SqliteSaver
 
 from .query import RAGQueryEngine
 

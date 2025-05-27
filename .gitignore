@@ -124,11 +124,6 @@ conversation_memory.db
 conversation_memory.db-shm
 conversation_memory.db-wal
 
-# Temporary test files in root
-test_*.py
-test_*.html
-debug_*.py
-
 # IDE files
 .vscode/
 .idea/
