@@ -16,7 +16,7 @@ import uuid
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint import SqliteSaver
+from langgraph.checkpoint.sqlite import SqliteSaver
 
 from .query import RAGQueryEngine
 
