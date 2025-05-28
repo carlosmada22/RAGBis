@@ -6,6 +6,11 @@
     <title>openBIS Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Markdown rendering library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Syntax highlighting for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
     <div class="chat-container">
@@ -13,7 +18,7 @@
             <div class="header-content">
                 <div class="header-text">
                     <h1><i class="fas fa-robot"></i> openBIS Assistant</h1>
-                    <p>Ask me anything about openBIS! I remember our conversation.</p>
+                    <p>Ask me anything about openBIS!</p>
                 </div>
                 <button id="clear-chat-btn" class="clear-btn" title="Clear conversation history">
                     <i class="fas fa-trash"></i>
@@ -23,7 +28,9 @@
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant">
                 <div class="message-content">
-                    <p>Hello! I'm the openBIS Assistant. How can I help you today?</p>
+                    <div class="markdown-content">
+                        <p>Hello! I'm the openBIS Assistant. How can I help you today?</p>
+                    </div>
                 </div>
             </div>
         </div>

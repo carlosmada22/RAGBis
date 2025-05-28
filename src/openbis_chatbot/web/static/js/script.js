@@ -8,16 +8,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to add a message to the chat
     function addMessage(content, isUser = false) {
+        console.log('addMessage called with:', { content: content.substring(0, 100) + '...', isUser });
+
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
 
         const messageContent = document.createElement('div');
         messageContent.className = 'message-content';
 
-        const messageParagraph = document.createElement('p');
-        messageParagraph.textContent = content;
+        if (isUser) {
+            // For user messages, keep as plain text
+            const messageParagraph = document.createElement('p');
+            messageParagraph.textContent = content;
+            messageContent.appendChild(messageParagraph);
+        } else {
+            // For assistant messages, create a div to hold formatted content
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'markdown-content';
 
-        messageContent.appendChild(messageParagraph);
+            // Enhanced markdown-like formatting
+            let formattedContent = content
+                // Headers (must be processed before line breaks)
+                .replace(/^### (.*$)/gm, '<h3>$1</h3>')           // H3 headers
+                .replace(/^## (.*$)/gm, '<h2>$1</h2>')            // H2 headers
+                .replace(/^# (.*$)/gm, '<h1>$1</h1>')             // H1 headers
+                // Text formatting
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')             // Italic
+                .replace(/`(.*?)`/g, '<code>$1</code>')           // Inline code
+                // Line breaks (convert to proper paragraphs and lists)
+                .replace(/\n\n/g, '</p><p>')                      // Double line breaks = new paragraph
+                .replace(/\n/g, '<br>');                          // Single line breaks = <br>
+
+            // Handle lists with simple regex (basic support)
+            // Convert bullet points to proper list items
+            formattedContent = formattedContent.replace(/((?:- .*<br>)+)/g, function(match) {
+                const items = match.replace(/- (.*?)<br>/g, '<li>$1</li>');
+                return '<ul>' + items + '</ul>';
+            });
+
+            // Convert numbered lists to proper list items
+            formattedContent = formattedContent.replace(/((?:\d+\. .*<br>)+)/g, function(match) {
+                const items = match.replace(/\d+\. (.*?)<br>/g, '<li>$1</li>');
+                return '<ol>' + items + '</ol>';
+            });
+
+            // Wrap in paragraph tags if not already wrapped
+            if (!formattedContent.includes('<h') && !formattedContent.includes('<ul') && !formattedContent.includes('<ol')) {
+                formattedContent = '<p>' + formattedContent + '</p>';
+            }
+
+            messageDiv.innerHTML = formattedContent;
+            messageContent.appendChild(messageDiv);
+
+            console.log('Assistant message added with content:', formattedContent.substring(0, 100) + '...');
+        }
+
         messageDiv.appendChild(messageContent);
         chatMessages.appendChild(messageDiv);
 
@@ -89,7 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Add the assistant's response to the chat
-                addMessage(data.answer);
+                console.log('Adding assistant response:', data.answer);
+                addMessage(data.answer, false); // Explicitly mark as assistant message
 
                 // Log metadata for debugging (optional)
                 if (data.metadata) {
@@ -97,7 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } else {
                 // Add an error message to the chat
-                addMessage('Sorry, I encountered an error: ' + (data.error || 'Unknown error'));
+                console.error('API returned error:', data.error);
+                addMessage('Sorry, I encountered an error: ' + (data.error || 'Unknown error'), false);
             }
         } catch (error) {
             // Remove loading indicator
@@ -118,13 +166,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     // Clear the chat messages display
-                    chatMessages.innerHTML = `
-                        <div class="message assistant">
-                            <div class="message-content">
-                                <p>Hello! I'm the openBIS Assistant. How can I help you today?</p>
-                            </div>
-                        </div>
-                    `;
+                    chatMessages.innerHTML = '';
+
+                    // Add welcome message using the addMessage function for consistency
+                    addMessage("Hello! I'm the openBIS Assistant. How can I help you today?");
+
                     // Clear session from localStorage
                     localStorage.removeItem('chatSessionId');
                     sessionId = null;
