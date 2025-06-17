@@ -98,7 +98,7 @@ def demo_conversation():
             
             print(f"🎯 Actual Agent: {actual_agent}")
             print(f"📊 Metadata: {metadata}")
-            print(f"💬 Response:")
+            print("💬 Response:")
             print(f"   {response}")
             print()
             print("-" * 50)
