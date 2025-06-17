@@ -1,6 +1,6 @@
-# RAGbis - Data Acquisition and Processing for openBIS Documentation
+# ragBIS - Data Acquisition and Processing for openBIS Documentation
 
-RAGbis is a standalone Python package that scrapes openBIS documentation, processes the content, and generates embeddings for use in RAG (Retrieval Augmented Generation) applications.
+ragBIS is a standalone Python package that scrapes openBIS documentation, processes the content, and generates embeddings for use in RAG (Retrieval Augmented Generation) applications.
 
 ## Features
 
@@ -28,7 +28,7 @@ RAGbis is a standalone Python package that scrapes openBIS documentation, proces
 ### From Source
 
 1. Clone or download this project
-2. Navigate to the RAGbis_project directory
+2. Navigate to the ragBIS_project directory
 3. Create a virtual environment (recommended):
    ```bash
    python -m venv venv
@@ -49,7 +49,7 @@ pip install ragbis
 
 ### Basic Usage
 
-Run RAGbis with default settings to scrape and process openBIS documentation:
+Run ragBIS with default settings to scrape and process openBIS documentation:
 
 ```bash
 python -m ragbis
@@ -98,7 +98,7 @@ python -m ragbis --min-chunk-size 200 --max-chunk-size 1500 --chunk-overlap 100
 
 ## Output Structure
 
-RAGbis creates the following directory structure:
+ragBIS creates the following directory structure:
 
 ```
 data/
@@ -118,10 +118,10 @@ data/
 
 ## Integration with chatBIS
 
-The processed data from RAGbis is designed to be used with chatBIS, the conversational interface. After running RAGbis, you can:
+The processed data from ragBIS is designed to be used with chatBIS, the conversational interface. The chatBIS repo is accesible [here](https://github.com/BAMresearch/chatBIS). After running ragBIS, you can:
 
 1. Copy the `data` directory to your chatBIS project
-2. Or point chatBIS to the RAGbis output directory
+2. Or point chatBIS to the ragBIS output directory
 
 ## Configuration
 
